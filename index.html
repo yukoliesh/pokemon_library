@@ -1,124 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PokéScan Library</title>
-    <meta name="theme-color" content="#0ea5e9" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-    <link rel="stylesheet" href="./assets/styles.css" />
-
-    <!-- Tesseract.js for OCR (loaded globally as window.Tesseract) -->
-    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js" defer></script>
-
-    <!-- App -->
-    <script src="./assets/app.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokéScan React</title>
   </head>
   <body>
-    <header class="app-header">
-      <div class="container header-inner">
-        <div class="brand">
-          <span class="pokeball" aria-hidden="true"></span>
-          <span class="brand-title">PokéScan Library</span>
-        </div>
-        <div class="header-actions">
-          <button id="open-scan-btn" class="btn btn-primary">
-            <img src="./assets/icons/plus.svg" alt="" class="icon" />
-            <span>Scan card</span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <main class="container main">
-      <section id="empty-state" class="empty-state" aria-live="polite">
-        <div class="empty-art">📷</div>
-        <h1>Your library is empty</h1>
-        <p>Add your first card by scanning it with your camera.</p>
-        <button id="empty-scan-btn" class="btn btn-primary btn-xl">
-          <img src="./assets/icons/plus.svg" alt="" class="icon" />
-          <span>Scan your first card</span>
-        </button>
-      </section>
-
-      <section id="library-section" class="library" hidden>
-        <div class="library-toolbar">
-          <div class="left">
-            <button id="toolbar-scan-btn" class="btn btn-primary">
-              <img src="./assets/icons/plus.svg" alt="" class="icon" />
-              <span>Scan</span>
-            </button>
-          </div>
-          <div class="right">
-            <input id="filter-input" class="input" type="search" placeholder="Search your library" />
-          </div>
-        </div>
-        <div id="library-grid" class="card-grid" aria-live="polite"></div>
-      </section>
-    </main>
-
-    <!-- Scanner Modal -->
-    <div id="scanner-modal" class="modal" hidden aria-hidden="true" aria-labelledby="scanner-title" role="dialog">
-      <div class="modal-backdrop" data-close="scanner"></div>
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 id="scanner-title">Scan card</h2>
-          <button class="btn btn-ghost" data-close="scanner">Close</button>
-        </div>
-        <div class="scanner">
-          <div class="scanner-stage">
-            <video id="camera-video" autoplay playsinline></video>
-            <canvas id="capture-canvas" hidden></canvas>
-            <div class="scan-frame" aria-hidden="true"></div>
-          </div>
-          <div class="scanner-controls">
-            <button id="capture-btn" class="btn btn-primary">Capture</button>
-            <button id="retake-btn" class="btn" hidden>Retake</button>
-            <button id="ocr-btn" class="btn" hidden>Scan Text</button>
-          </div>
-          <div id="ocr-progress" class="progress" hidden>
-            <div class="progress-bar" style="width: 0%"></div>
-            <div class="progress-text">Analyzing image…</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Results Modal -->
-    <div id="results-modal" class="modal" hidden aria-hidden="true" aria-labelledby="results-title" role="dialog">
-      <div class="modal-backdrop" data-close="results"></div>
-      <div class="modal-content modal-large">
-        <div class="modal-header">
-          <h2 id="results-title">Match your card</h2>
-          <button class="btn btn-ghost" data-close="results">Close</button>
-        </div>
-        <div class="results">
-          <div class="results-toolbar">
-            <input id="results-query" class="input" type="search" placeholder="Card name (edit if needed)" />
-            <button id="results-search-btn" class="btn">Search</button>
-          </div>
-          <div id="results-list" class="results-list" aria-live="polite"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Details Modal -->
-    <div id="details-modal" class="modal" hidden aria-hidden="true" aria-labelledby="details-title" role="dialog">
-      <div class="modal-backdrop" data-close="details"></div>
-      <div class="modal-content modal-large">
-        <div class="modal-header">
-          <h2 id="details-title">Card details</h2>
-          <button class="btn btn-ghost" data-close="details">Close</button>
-        </div>
-        <div id="details-body" class="details-body"></div>
-      </div>
-    </div>
-
-    <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
