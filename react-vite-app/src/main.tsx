@@ -8,3 +8,16 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+
+// Register service worker in production only
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    if (import.meta.env.MODE === 'production') {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .catch((error) => {
+          console.error('Service worker registration failed:', error)
+        })
+    }
+  })
+}
