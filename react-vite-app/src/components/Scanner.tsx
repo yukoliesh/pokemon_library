@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import Webcam from 'react-webcam';
 import './scanner.css';
 
@@ -8,10 +8,8 @@ const videoConstraints: MediaTrackConstraints = {
 
 export default function Scanner() {
   const webcamRef = useRef<Webcam | null>(null);
-  const [isReady, setIsReady] = useState(false);
-
   const handleUserMedia = useCallback(() => {
-    setIsReady(true);
+    // Camera stream available
   }, []);
 
   // Maintain 16:9 container ratio for camera preview
