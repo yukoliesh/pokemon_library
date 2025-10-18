@@ -1,0 +1,17 @@
+{
+  "name": "react-vite-app",
+  "short_name": "ReactVite",
+  "description": "A React app bootstrapped with Vite.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#242424",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
